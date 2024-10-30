@@ -4,6 +4,7 @@ import { TABLE_SIZE } from '../data';
 
 const Tabletop = () => {
   const { position } = useContext(RobotContext);
+
   const showArrow = (facing) => {
     switch (facing) {
       case 'NORTH':
@@ -20,7 +21,7 @@ const Tabletop = () => {
   };
 
   const renderCell = (x, y) => {
-    const isRobotHere = position.x === x && position.y === y;
+    const isRobotHere = position?.x === x && position?.y === y;
     return (
       <div
         key={`${x},${y}`}

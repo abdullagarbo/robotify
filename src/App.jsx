@@ -8,6 +8,7 @@ import './App.css';
 
 function App() {
   const { output, executeCommands } = useContext(RobotContext);
+
   return (
     <div>
       <Logo />
