@@ -1,7 +1,9 @@
-import PropTypes from 'prop-types';
+import { useContext } from 'react';
+import { RobotContext } from '../../store/Context';
 import styles from './TextArea.module.css';
 
-const TextArea = ({ commands, onChange }) => {
+const TextArea = () => {
+  const { commands, setCommands } = useContext(RobotContext);
   return (
     <textarea
       className={styles['textArea']}
@@ -9,14 +11,9 @@ const TextArea = ({ commands, onChange }) => {
       cols='30'
       placeholder='Enter commands here'
       value={commands}
-      onChange={onChange}
+      onChange={(e) => setCommands(e.target.value)}
     />
   );
-};
-
-TextArea.propTypes = {
-  commands: PropTypes.string,
-  onChange: PropTypes.func,
 };
 
 export default TextArea;

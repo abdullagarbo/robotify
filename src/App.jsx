@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import RobotContext from './store/RobotContext';
+import { RobotContext } from './store/Context';
 import Logo from './components/Logo';
 import Tabletop from './components/Tabletop';
 import TextArea from './components/UI/TextArea';
@@ -7,23 +7,19 @@ import Button from './components/UI/Button';
 import './App.css';
 
 function App() {
-  const { position, output, commands, updateCommands, executeCommands } =
-    useContext(RobotContext);
+  const { output, executeCommands } = useContext(RobotContext);
   return (
     <div>
       <Logo />
       <h1>Robotify Simulator</h1>
-      <TextArea
-        onChange={(e) => updateCommands(e.target.value)}
-        commands={commands}
-      />
+      <TextArea />
       <br />
       <Button onClick={executeCommands} />
       <div>
         {output != '' && <h2>Output:</h2>}
         <p>{output}</p>
       </div>
-      <Tabletop position={position} />
+      <Tabletop />
     </div>
   );
 }

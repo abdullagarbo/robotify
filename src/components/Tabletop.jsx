@@ -1,7 +1,9 @@
-import PropTypes from 'prop-types';
+import { useContext } from 'react';
+import { RobotContext } from '../store/Context';
 import { TABLE_SIZE } from '../data';
 
-const Tabletop = ({ position }) => {
+const Tabletop = () => {
+  const { position } = useContext(RobotContext);
   const showArrow = (facing) => {
     switch (facing) {
       case 'NORTH':
@@ -54,10 +56,6 @@ const Tabletop = ({ position }) => {
       </div>
     </div>
   );
-};
-
-Tabletop.propTypes = {
-  position: PropTypes.object,
 };
 
 export default Tabletop;
